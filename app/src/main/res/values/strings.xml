@@ -3,7 +3,7 @@
     <string name="app_name">Weather DMI</string>
 
     <string name="weather_search_hint">Search here...</string>
-    <string name="weather_headline">Results</string>
+    <string name="weather_headline">Results for %s</string>
     <string name="weather_description">Description</string>
     <string name="weather_temp">Temperature</string>
     <string name="weather_humidity">Humidity</string>

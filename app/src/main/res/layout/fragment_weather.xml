@@ -45,28 +45,39 @@
                 android:onClick="@{() -> clickListener.onSearchClicked()}"
                 app:layout_constraintTop_toTopOf="@+id/search_edit_text"
                 app:layout_constraintBottom_toBottomOf="@+id/search_edit_text"/>
+
         <TextView
                 android:text="@string/weather_headline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView" android:layout_marginTop="16dp"
+                android:id="@+id/headline"
+                android:layout_marginTop="16dp"
+                android:visibility="@{weatherResult == null ? View.GONE : View.VISIBLE}"
                 app:layout_constraintTop_toBottomOf="@+id/search_edit_text"
-                app:layout_constraintStart_toStartOf="@+id/search_edit_text" android:textSize="24sp"
-                android:textStyle="bold" android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="@+id/search_edit_text"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/searchButton"/>
+
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="@+id/textView"
-                android:layout_marginTop="16dp" app:layout_constraintEnd_toStartOf="@+id/description_tv"
-                android:layout_marginEnd="16dp" android:text="@string/weather_description" android:textStyle="bold"/>
+                app:layout_constraintTop_toBottomOf="@+id/headline"
+                app:layout_constraintStart_toStartOf="@+id/headline"
+                android:visibility="@{weatherResult == null ? View.GONE : View.VISIBLE}"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/description_tv"
+                android:layout_marginEnd="16dp"
+                android:text="@string/weather_description"
+                android:textStyle="bold"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/description_tv"
-                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="@+id/headline"
                 app:layout_constraintTop_toTopOf="@+id/textView2"
                 android:text="@{weatherResult.description}"
                 tools:text="clear sky"/>
@@ -80,6 +91,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintEnd_toStartOf="@+id/temp_tv"
+                android:visibility="@{weatherResult == null ? View.GONE : View.VISIBLE}"
                 android:layout_marginEnd="16dp"
                 android:textStyle="bold"/>
 

@@ -29,6 +29,7 @@ class WeatherFragment : Fragment() {
         binding.clickListener = this
 
         viewModel.searchResult.observe(viewLifecycleOwner, Observer { weatherResult ->
+            binding.headline.text = getString(R.string.weather_headline, weatherResult?.name ?: "")
             binding.weatherResult = weatherResult
         })
 
